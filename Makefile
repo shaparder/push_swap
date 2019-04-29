@@ -6,7 +6,7 @@
 #    By: osfally <osfally@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/09 09:21:23 by osfally           #+#    #+#              #
-#    Updated: 2019/04/25 20:07:30 by osfally          ###   ########.fr        #
+#    Updated: 2019/04/28 16:37:04 by osfally          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,11 @@ LIB_OBJ		:=	$(LIB_DIR)/obj
 # src / obj files
 CHCK		:=	checker.c
 PSWP		:=	push_swap.c
-SRCS		:=
+SRCS		:=	stack.c
 
-OBJS		:=	$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
+OBJS		:=	$(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+OBJ_CHCK	:=	$(addprefix $(OBJ_DIR)/, $(CHCK:.c=.o))
+OBJ_PSWP	:=	$(addprefix $(OBJ_DIR)/, $(PSWP:.c=.o))
 
 INCS		:=	-I $(INC_DIR)\
 				-I $(LIB_INC)
@@ -59,8 +61,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) $(CFLAGS) $(INCS) -o $@ -c $<
 	@echo "Object created."
 
-$(CHECKER): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(INCS) $(LIB_EXC) -o $(CHECKER)
+$(CHECKER): $(OBJS) $(OBJ_CHCK)
+	@$(CC) $(CFLAGS) $(OBJS) $(OBJ_CHCK) $(INCS) $(LIB_EXC) -o $(CHECKER)
 	@echo "Executable created: $(CHECKER)"
 
 # clean obj folder
