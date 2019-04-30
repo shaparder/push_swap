@@ -6,7 +6,7 @@
 /*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 17:52:08 by osfally           #+#    #+#             */
-/*   Updated: 2019/04/27 17:58:05 by osfally          ###   ########.fr       */
+/*   Updated: 2019/04/30 14:01:27 by osfally          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void			stack_free(t_stack *node)
 	node = NULL;
 }
 
-int				stack_check(t_stack *head)
+int				stack_sorted(t_stack *head)
 {
 	t_stack		*tmp;
 	t_stack		*end;
@@ -73,5 +73,26 @@ int				stack_check(t_stack *head)
 			return (0);
 		tmp = tmp->next;
 	}
+	end = NULL;
+	tmp = NULL;
 	return (1);
+}
+
+void			print_stack(t_stack *stack)
+{
+	t_stack		*end;
+	t_stack		*tmp;
+
+	end = stack->prev;
+	tmp = stack;
+	while (tmp != end)
+	{
+		ft_putnbr(tmp->value);
+		ft_putchar('\n');
+		tmp = tmp->next;
+	}
+	ft_putnbr(tmp->value);
+	ft_putchar('\n');
+	end = NULL;
+	tmp = NULL;
 }

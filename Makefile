@@ -6,7 +6,7 @@
 #    By: osfally <osfally@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/09 09:21:23 by osfally           #+#    #+#              #
-#    Updated: 2019/04/28 16:37:04 by osfally          ###   ########.fr        #
+#    Updated: 2019/04/29 20:00:52 by osfally          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ LIB_OBJ		:=	$(LIB_DIR)/obj
 # src / obj files
 CHCK		:=	checker.c
 PSWP		:=	push_swap.c
-SRCS		:=	stack.c
+SRCS		:=	stack.c\
+				helpers.c\
 
 OBJS		:=	$(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 OBJ_CHCK	:=	$(addprefix $(OBJ_DIR)/, $(CHCK:.c=.o))
@@ -90,5 +91,3 @@ cleanclean: libclean fclean
 	@rm -rf .vscode
 	@$(MAKE) -C $(LIB_DIR) fclean
 	@echo "Library obj and file cleaned."
-
-

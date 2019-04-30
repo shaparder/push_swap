@@ -6,7 +6,7 @@
 /*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 20:38:32 by osfally           #+#    #+#             */
-/*   Updated: 2019/04/27 18:35:16 by osfally          ###   ########.fr       */
+/*   Updated: 2019/04/30 13:56:28 by osfally          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 # define PUSH_SWAP_H
 
 # include "../libft/includes/libft.h"
-# include "stack.h"
+
+//structs
+typedef struct		s_stack
+{
+	int				value;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}					t_stack;
 
 typedef struct		s_dualstack
 {
@@ -24,5 +31,17 @@ typedef struct		s_dualstack
 
 # define A			(dual->a)
 # define B			(dual->b)
+
+// helpers
+size_t				ft_ptrlen(char **ptr);
+void				free_dual(t_dualstack *dual);
+int					check_doublon(t_stack *stack);
+void				program_end(t_dualstack *dual, char *msg);
+// stack
+t_stack				*stack_init(int value);
+t_stack				*stack_push(t_stack *node, int value);
+void				stack_free(t_stack *node);
+int					stack_sorted(t_stack *head);
+void				print_stack(t_stack *stack);
 
 #endif
