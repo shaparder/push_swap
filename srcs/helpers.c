@@ -6,7 +6,7 @@
 /*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:14:47 by osfally           #+#    #+#             */
-/*   Updated: 2019/04/30 19:33:41 by osfally          ###   ########.fr       */
+/*   Updated: 2019/05/01 00:11:04 by osfally          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,21 @@ void			free_dual(t_dualstack *dual)
 {
 	stack_free(dual->a);
 	stack_free(dual->b);
+	free(dual);
 }
 
-void			program_end(t_dualstack *dual, char *msg)
+void			program_end(t_dualstack *dual, int status)
 {
-	free_dual(dual);
-	ft_error(msg);
+	if (status)
+	{
+		(stack_sorted(A) && !dual->b) ? ft_putendl("OK") : ft_putendl("KO");
+		free_dual(dual);
+	}
+	else
+	{
+		free_dual(dual);
+		ft_error("Error.");
+	}
 }
 
 int				verify_arg(char *str, t_stack *stack)

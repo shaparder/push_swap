@@ -6,7 +6,7 @@
 #    By: osfally <osfally@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/09 09:21:23 by osfally           #+#    #+#              #
-#    Updated: 2019/04/30 20:28:34 by osfally          ###   ########.fr        #
+#    Updated: 2019/05/01 00:11:52 by osfally          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ CHCK		:=	checker.c
 PSWP		:=	push_swap.c
 SRCS		:=	stack.c\
 				helpers.c\
+				instructions.c\
 
 OBJS		:=	$(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 OBJ_CHCK	:=	$(addprefix $(OBJ_DIR)/, $(CHCK:.c=.o))
@@ -79,12 +80,6 @@ fclean: clean
 
 # renew obj folder and executable
 re: fclean all
-
-# clean then update github
-git: cleanclean
-	git add *
-	git commit -m "$(m)"
-	git push
 
 # CLEANCLEANCLEAN
 cleanclean: fclean
