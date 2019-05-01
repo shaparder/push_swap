@@ -6,11 +6,17 @@
 /*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 22:33:23 by osfally           #+#    #+#             */
-/*   Updated: 2019/04/30 13:57:24 by osfally          ###   ########.fr       */
+/*   Updated: 2019/04/30 19:35:00 by osfally          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void			apply_instruction(t_dualstack *dual, char *line)
+{
+	B = NULL;
+	ft_strdel(&line);
+}
 
 int				main(int argc, char **argv)
 {
@@ -18,6 +24,7 @@ int				main(int argc, char **argv)
 	t_dualstack	*dual;
 	t_stack		*a;
 	t_stack		*b;
+	char		*line;
 
 	if (!(dual = malloc(sizeof(t_dualstack))))
 		return (EXIT_FAILURE);
@@ -30,17 +37,15 @@ int				main(int argc, char **argv)
 	i = (argc == 2) ? ft_ptrlen(argv) : argc - 1;
 	while (i--)
 	{
-		a = stack_push(a, ft_atoi(argv[i]));
-		if (check_doublon(a))
+		if (!verify_arg(argv[i], a))
 			program_end(dual, "Error.");
+		a = stack_push(a, ft_atoi(argv[i]));
 	}
+	while (get_next_line(0, &line))
+		apply_instruction(dual, line);
 	print_stack(a);
-	// apply_instructions(dual);
-	if (stack_sorted(a))
-		ft_putendl("OK");
-	else
-		ft_putendl("KO");
+	(stack_sorted(a)) ? ft_putendl("OK") : ft_putendl("KO");
 	free_dual(dual);
-	// system("leaks checker");
+	(argc == 2) ? ft_ptrfree(argv) : 0;
 	return (EXIT_SUCCESS);
 }

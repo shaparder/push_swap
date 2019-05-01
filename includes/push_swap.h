@@ -6,7 +6,7 @@
 /*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 20:38:32 by osfally           #+#    #+#             */
-/*   Updated: 2019/04/30 13:56:28 by osfally          ###   ########.fr       */
+/*   Updated: 2019/04/30 19:33:41 by osfally          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/includes/libft.h"
+# include <limits.h>
 
 //structs
 typedef struct		s_stack
@@ -34,8 +35,9 @@ typedef struct		s_dualstack
 
 // helpers
 size_t				ft_ptrlen(char **ptr);
+void				ft_ptrfree(char **ptr);
 void				free_dual(t_dualstack *dual);
-int					check_doublon(t_stack *stack);
+int					verify_arg(char *arg, t_stack *stack);
 void				program_end(t_dualstack *dual, char *msg);
 // stack
 t_stack				*stack_init(int value);

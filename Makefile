@@ -6,7 +6,7 @@
 #    By: osfally <osfally@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/09 09:21:23 by osfally           #+#    #+#              #
-#    Updated: 2019/04/29 20:00:52 by osfally          ###   ########.fr        #
+#    Updated: 2019/04/30 20:28:34 by osfally          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,6 @@ git: cleanclean
 	git push
 
 # CLEANCLEANCLEAN
-cleanclean: libclean fclean
+cleanclean: fclean
 	@rm -rf .vscode
-	@$(MAKE) -C $(LIB_DIR) fclean
-	@echo "Library obj and file cleaned."
+	@echo "Cleancleaned."
