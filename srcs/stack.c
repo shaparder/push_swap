@@ -6,7 +6,7 @@
 /*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 17:52:08 by osfally           #+#    #+#             */
-/*   Updated: 2019/04/30 14:01:27 by osfally          ###   ########.fr       */
+/*   Updated: 2019/05/01 20:27:30 by osfally          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,40 +24,53 @@ t_stack			*stack_init(int value)
 	return (new);
 }
 
-t_stack			*stack_push(t_stack *node, int value)
+t_stack			*stack_push(t_stack *stack, int value)
 {
 	t_stack		*new;
 
-	if (node == NULL)
+	if (stack == NULL)
 		return(stack_init(value));
 	else if (!(new = (t_stack *)malloc(sizeof(t_stack))))
 		return (NULL);
 	new->value = value;
-	new->next = node;
-	new->prev = node->prev;
-	node->prev = new;
+	new->next = stack;
+	new->prev = stack->prev;
+	stack->prev = new;
 	new->prev->next = new;
 	return (new);
 }
 
-void			stack_free(t_stack *node)
+t_stack			*stack_del(t_stack *stack)
+{
+	t_stack		*tmp;
+	if (stack == stack->next)
+		return (NULL);
+	tmp = stack->next;
+	stack->next->prev = stack->prev;
+	stack->prev->next = stack->next;
+	free(stack);
+	stack = NULL;
+	return (tmp);
+}
+
+void			stack_free(t_stack *stack)
 {
 	t_stack		*end;
 	t_stack		*tmp;
 
-	if (!node)
+	if (!stack)
 		return ;
-	end = node->prev;
-	while (node != end)
+	end = stack->prev;
+	while (stack != end)
 	{
-		tmp = node->next;
-		free(node);
-		node = tmp;
+		tmp = stack->next;
+		free(stack);
+		stack = tmp;
 		tmp = NULL;
 	}
 	free(end);
 	end = NULL;
-	node = NULL;
+	stack = NULL;
 }
 
 int				stack_sorted(t_stack *head)

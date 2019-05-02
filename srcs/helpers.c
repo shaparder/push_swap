@@ -6,7 +6,7 @@
 /*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:14:47 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/01 00:11:04 by osfally          ###   ########.fr       */
+/*   Updated: 2019/05/01 17:08:39 by osfally          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void			program_end(t_dualstack *dual, int status)
 {
 	if (status)
 	{
-		(stack_sorted(A) && !dual->b) ? ft_putendl("OK") : ft_putendl("KO");
+		(!dual->b && stack_sorted(A)) ? ft_putendl("OK") : ft_putendl("KO");
 		free_dual(dual);
 	}
 	else

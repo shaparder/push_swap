@@ -6,7 +6,7 @@
 #    By: osfally <osfally@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/09 09:21:23 by osfally           #+#    #+#              #
-#    Updated: 2019/05/01 00:11:52 by osfally          ###   ########.fr        #
+#    Updated: 2019/05/01 17:07:45 by osfally          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ CHCK		:=	checker.c
 PSWP		:=	push_swap.c
 SRCS		:=	stack.c\
 				helpers.c\
-				instructions.c\
+				commands.c\
 
 OBJS		:=	$(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 OBJ_CHCK	:=	$(addprefix $(OBJ_DIR)/, $(CHCK:.c=.o))

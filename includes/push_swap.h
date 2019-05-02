@@ -6,7 +6,7 @@
 /*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 20:38:32 by osfally           #+#    #+#             */
-/*   Updated: 2019/04/30 23:59:58 by osfally          ###   ########.fr       */
+/*   Updated: 2019/05/01 19:33:48 by osfally          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ typedef struct		s_dualstack
 	t_stack			*b;
 }					t_dualstack;
 
-typedef struct		s_pswap
+typedef struct		s_cmds
 {
 	char			*str;
 	void			(*fct)(t_dualstack *dual);
-}					t_pswap;
+}					t_cmds;
 
-# define INST		11
+# define CMDS		11
 # define A			(dual->a)
 # define B			(dual->b)
 
-extern t_pswap		g_pswap[INST];
+// extern t_cmds		g_cmds[CMDS];
 // helpers
 size_t				ft_ptrlen(char **ptr);
 void				ft_ptrfree(char **ptr);
@@ -53,8 +53,20 @@ t_stack				*stack_push(t_stack *node, int value);
 void				stack_free(t_stack *node);
 int					stack_sorted(t_stack *head);
 void				print_stack(t_stack *stack);
-// instructions
-void				apply_instructions(t_dualstack *dual);
-void				execute_inst(t_dualstack *dual, char *line);
+// cmd exec
+void				apply_cmds(t_dualstack *dual);
+void				execute_cmd(t_dualstack *dual, char *line);
+// cmd list
+void				cmd_sa(t_dualstack *dual);
+void				cmd_sb(t_dualstack *dual);
+void				cmd_ss(t_dualstack *dual);
+void				cmd_pa(t_dualstack *dual);
+void				cmd_pb(t_dualstack *dual);
+void				cmd_ra(t_dualstack *dual);
+void				cmd_rb(t_dualstack *dual);
+void				cmd_rr(t_dualstack *dual);
+void				cmd_rra(t_dualstack *dual);
+void				cmd_rrb(t_dualstack *dual);
+void				cmd_rrr(t_dualstack *dual);
 
 #endif
