@@ -6,7 +6,7 @@
 /*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 17:52:08 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/01 20:27:30 by osfally          ###   ########.fr       */
+/*   Updated: 2019/05/01 20:29:34 by osfally          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,13 @@ t_stack			*stack_push(t_stack *stack, int value)
 t_stack			*stack_del(t_stack *stack)
 {
 	t_stack		*tmp;
+
 	if (stack == stack->next)
-		return (NULL);
+	{
+		free(stack);
+		stack = NULL;
+		return (stack);
+	}
 	tmp = stack->next;
 	stack->next->prev = stack->prev;
 	stack->prev->next = stack->next;
