@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: osfally <osfally@student.42.fr>            +#+  +:+       +#+         #
+#    By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/09 09:21:23 by osfally           #+#    #+#              #
-#    Updated: 2019/05/01 17:07:45 by osfally          ###   ########.fr        #
+#    Updated: 2019/05/07 11:08:39 by shaparder        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,9 @@ PSWP		:=	push_swap.c
 SRCS		:=	stack.c\
 				helpers.c\
 				commands.c\
+				commands_a.c\
+				commands_ab.c\
+				commands_b.c
 
 OBJS		:=	$(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 OBJ_CHCK	:=	$(addprefix $(OBJ_DIR)/, $(CHCK:.c=.o))
@@ -67,6 +70,10 @@ $(CHECKER): $(OBJS) $(OBJ_CHCK)
 	@$(CC) $(CFLAGS) $(OBJS) $(OBJ_CHCK) $(INCS) $(LIB_EXC) -o $(CHECKER)
 	@echo "Executable created: $(CHECKER)"
 
+$(PUSHSWAP): $(OBJS) $(OBJ_PSWP)
+	@$(CC) $(CFLAGS) $(OBJS) $(OBJ_PSWP) $(INCS) $(LIB_EXC) -o $(CHECKER)
+	@echo "Executable created: $(PUSHSWAP)"
+
 # clean obj folder
 clean:
 	@rm -rf $(OBJ_DIR)
@@ -84,4 +91,4 @@ re: fclean all
 # CLEANCLEANCLEAN
 cleanclean: fclean
 	@rm -rf .vscode
-	@echo "Cleancleaned."
+	@echo "Mister cleaaaaannn."

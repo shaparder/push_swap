@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
+/*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 20:38:32 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/01 19:33:48 by osfally          ###   ########.fr       */
+/*   Updated: 2019/05/07 08:06:27 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct		s_cmds
 # define A			(dual->a)
 # define B			(dual->b)
 
-// extern t_cmds		g_cmds[CMDS];
+extern t_cmds		g_cmds[CMDS];
 // helpers
 size_t				ft_ptrlen(char **ptr);
 void				ft_ptrfree(char **ptr);
@@ -50,6 +50,7 @@ void				program_end(t_dualstack *dual, int status);
 // stack
 t_stack				*stack_init(int value);
 t_stack				*stack_push(t_stack *node, int value);
+t_stack				*stack_del(t_stack *stack);
 void				stack_free(t_stack *node);
 int					stack_sorted(t_stack *head);
 void				print_stack(t_stack *stack);

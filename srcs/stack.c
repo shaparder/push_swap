@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
+/*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 17:52:08 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/01 20:29:34 by osfally          ###   ########.fr       */
+/*   Updated: 2019/05/07 11:43:58 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_stack			*stack_push(t_stack *stack, int value)
 	t_stack		*new;
 
 	if (stack == NULL)
-		return(stack_init(value));
+		return (stack_init(value));
 	else if (!(new = (t_stack *)malloc(sizeof(t_stack))))
 		return (NULL);
 	new->value = value;
@@ -74,8 +74,6 @@ void			stack_free(t_stack *stack)
 		tmp = NULL;
 	}
 	free(end);
-	end = NULL;
-	stack = NULL;
 }
 
 int				stack_sorted(t_stack *head)
@@ -87,15 +85,14 @@ int				stack_sorted(t_stack *head)
 	end = head->prev;
 	while (tmp != end)
 	{
-		if (tmp->next && tmp->value < tmp->next->value)
+		if (tmp->next && tmp->value > tmp->next->value)
 			return (0);
 		tmp = tmp->next;
 	}
-	end = NULL;
-	tmp = NULL;
 	return (1);
 }
 
+// to delete after
 void			print_stack(t_stack *stack)
 {
 	t_stack		*end;
@@ -111,6 +108,4 @@ void			print_stack(t_stack *stack)
 	}
 	ft_putnbr(tmp->value);
 	ft_putchar('\n');
-	end = NULL;
-	tmp = NULL;
 }

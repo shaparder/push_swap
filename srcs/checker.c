@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
+/*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 22:33:23 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/01 19:01:56 by osfally          ###   ########.fr       */
+/*   Updated: 2019/05/07 11:44:42 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int				main(int argc, char **argv)
 	}
 	apply_cmds(dual);
 	program_end(dual, 1);
-	// system("leaks checker");
+	system("leaks checker");
 	return (EXIT_SUCCESS);
 }

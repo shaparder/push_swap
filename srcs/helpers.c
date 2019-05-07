@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
+/*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:14:47 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/01 17:08:39 by osfally          ###   ########.fr       */
+/*   Updated: 2019/05/07 12:51:35 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void			ft_ptrfree(char **ptr)
 
 void			free_dual(t_dualstack *dual)
 {
-	stack_free(dual->a);
-	stack_free(dual->b);
+	stack_free(A);
+	stack_free(B);
 	free(dual);
 }
 

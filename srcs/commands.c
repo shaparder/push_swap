@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   commands.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osfally <osfally@student.42.fr>            +#+  +:+       +#+        */
+/*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 23:14:57 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/01 19:30:25 by osfally          ###   ########.fr       */
+/*   Updated: 2019/05/07 11:39:38 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void			execute_cmd(t_dualstack *dual, char *line)
 {
 	int			i;
 
-	i = 0;
-	while (CMDS > i++)
+	i = -1;
+	while (++i < CMDS)
 	{
 		if (ft_strcmp(line, g_cmds[i].str) == 0)
 		{
@@ -55,5 +55,8 @@ void			apply_cmds(t_dualstack *dual)
 		ft_strdel(&line);
 	}
 	ft_strdel(&line);
+	ft_putendl("stack a:");
 	print_stack(A);
+	ft_putendl("stack b:");
+	print_stack(B);
 }
