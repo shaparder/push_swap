@@ -6,7 +6,7 @@
 #    By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/09 09:21:23 by osfally           #+#    #+#              #
-#    Updated: 2019/05/07 11:08:39 by shaparder        ###   ########.fr        #
+#    Updated: 2019/05/08 19:34:09 by shaparder        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ LIB_OBJ		:=	$(LIB_DIR)/obj
 # src / obj files
 CHCK		:=	checker.c
 PSWP		:=	push_swap.c
-SRCS		:=	stack.c\
+SRCS		:=	stack_mem.c\
+				stack_util.c\
 				helpers.c\
 				commands.c\
 				commands_a.c\

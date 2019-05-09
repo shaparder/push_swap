@@ -6,7 +6,7 @@
 /*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 23:14:57 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/07 11:39:38 by shaparder        ###   ########.fr       */
+/*   Updated: 2019/05/09 15:28:43 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_cmds	g_cmds[CMDS] =
 	{"rrr", &cmd_rrr},
 };
 
-void			execute_cmd(t_dualstack *dual, char *line)
+void			execute_cmd(t_dualstack *dual, char *line, int verbose)
 {
 	int			i;
 
@@ -37,6 +37,8 @@ void			execute_cmd(t_dualstack *dual, char *line)
 		if (ft_strcmp(line, g_cmds[i].str) == 0)
 		{
 			g_cmds[i].fct(dual);
+			if (verbose)
+				ft_putendl(g_cmds[i].str);
 			break;
 		}
 	}
@@ -51,12 +53,9 @@ void			apply_cmds(t_dualstack *dual)
 	line = NULL;
 	while (get_next_line(0, &line) > 0)
 	{
-		execute_cmd(dual, line);
+		execute_cmd(dual, line, 0);
 		ft_strdel(&line);
 	}
 	ft_strdel(&line);
-	ft_putendl("stack a:");
-	print_stack(A);
-	ft_putendl("stack b:");
-	print_stack(B);
+	print_dual(dual);
 }

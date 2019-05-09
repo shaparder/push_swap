@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   stack_mem.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 17:52:08 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/07 11:43:58 by shaparder        ###   ########.fr       */
+/*   Updated: 2019/05/09 16:45:32 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+// delete this include when pushing project
+#include <stdio.h>
 
 t_stack			*stack_init(int value)
 {
@@ -76,36 +78,60 @@ void			stack_free(t_stack *stack)
 	free(end);
 }
 
-int				stack_sorted(t_stack *head)
-{
-	t_stack		*tmp;
-	t_stack		*end;
-
-	tmp = head;
-	end = head->prev;
-	while (tmp != end)
-	{
-		if (tmp->next && tmp->value > tmp->next->value)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
-}
-
 // to delete after
-void			print_stack(t_stack *stack)
+void			print_dual(t_dualstack *dual)
 {
-	t_stack		*end;
-	t_stack		*tmp;
+	t_stack		*end_a;
+	t_stack		*end_b;
+	t_stack		*tmp_a;
+	t_stack		*tmp_b;
 
-	end = stack->prev;
-	tmp = stack;
-	while (tmp != end)
+	if (A)
 	{
-		ft_putnbr(tmp->value);
-		ft_putchar('\n');
-		tmp = tmp->next;
+		tmp_a = A;
+		end_a = A->prev;
 	}
-	ft_putnbr(tmp->value);
-	ft_putchar('\n');
+	else
+		tmp_a = NULL;
+	if (B)
+	{
+		tmp_b = B;
+		end_b = B->prev;
+	}
+	else
+		tmp_b = NULL;
+	printf("   Stack A     Stack B    \n");
+	ft_putendl("  |--------|  |--------|  ");
+	while ((tmp_a && tmp_a != end_a) || (tmp_b && tmp_b != end_b))
+	{
+		printf("  |");
+		if (tmp_a && tmp_a != end_a)
+		{
+			printf("%-8i", tmp_a->value);
+			tmp_a = tmp_a->next;
+		}
+		else
+			printf("        ");
+		printf("|  |");
+		if (tmp_b && tmp_b != end_b)
+		{
+			printf("%-8i", tmp_b->value);
+			tmp_b = tmp_b->next;
+		}
+		else
+			printf("        ");
+		printf("|  \n");
+	}
+	printf("  |");
+	if (tmp_a)
+		printf("%-8i", tmp_a->value);
+	else
+		printf("        ");
+	printf("|  |");
+	if (tmp_b)
+		printf("%-8i", tmp_b->value);
+	else
+		printf("        ");
+	printf("|  \n");
+	ft_putendl("  |--------|  |--------|  ");
 }
