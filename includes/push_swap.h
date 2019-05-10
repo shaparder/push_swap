@@ -6,7 +6,7 @@
 /*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 20:38:32 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/08 19:22:43 by shaparder        ###   ########.fr       */
+/*   Updated: 2019/05/10 15:02:10 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,15 @@ size_t				ft_ptrlen(char **ptr);
 void				ft_ptrfree(char **ptr);
 int					verify_arg(char *arg, t_stack *stack);
 void				program_end(t_dualstack *dual, int status);
-// stack
+// stack mem
 t_stack				*stack_init(int value);
 t_stack				*stack_push(t_stack *node, int value);
 t_stack				*stack_del(t_stack *stack);
 void				stack_free(t_stack *node);
-int					stack_sorted(t_stack *head);
+// stack util
+int					stack_sorted(t_stack *head, int size);
+int					stack_size(t_stack *stack);
+
 void				print_dual(t_dualstack *dual);
 // cmd exec
 void				apply_cmds(t_dualstack *dual);

@@ -6,7 +6,7 @@
 #    By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/09 09:21:23 by osfally           #+#    #+#              #
-#    Updated: 2019/05/08 19:34:09 by shaparder        ###   ########.fr        #
+#    Updated: 2019/05/10 18:05:06 by shaparder        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ DFLAGS		:=	-fsanitize=address -g
 
 .PHONY: all clean fclean re
 
-all: mkdirectory  $(CHECKER)
+all: mkdirectory  $(CHECKER) $(PUSHSWAP)
 
 # create the obj folder
 mkdirectory: $(LIB_EXC)
@@ -72,7 +72,7 @@ $(CHECKER): $(OBJS) $(OBJ_CHCK)
 	@echo "Executable created: $(CHECKER)"
 
 $(PUSHSWAP): $(OBJS) $(OBJ_PSWP)
-	@$(CC) $(CFLAGS) $(OBJS) $(OBJ_PSWP) $(INCS) $(LIB_EXC) -o $(CHECKER)
+	@$(CC) $(CFLAGS) $(OBJS) $(OBJ_PSWP) $(INCS) $(LIB_EXC) -o $(PUSHSWAP)
 	@echo "Executable created: $(PUSHSWAP)"
 
 # clean obj folder

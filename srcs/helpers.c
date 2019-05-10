@@ -6,7 +6,7 @@
 /*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:14:47 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/08 19:22:43 by shaparder        ###   ########.fr       */
+/*   Updated: 2019/05/10 15:12:30 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void			program_end(t_dualstack *dual, int status)
 {
 	int			result;
 
-	result = (!dual->b && stack_sorted(A)) ? 1 : 0;
+	result = (!dual->b && stack_sorted(A, stack_size(A))) ? 1 : 0;
 	stack_free(A);
 	stack_free(B);
 	free(dual);
