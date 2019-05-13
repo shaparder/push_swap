@@ -6,7 +6,7 @@
 /*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 20:38:32 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/10 15:02:10 by shaparder        ###   ########.fr       */
+/*   Updated: 2019/05/13 18:07:39 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,11 @@ void				cmd_rr(t_dualstack *dual);
 void				cmd_rra(t_dualstack *dual);
 void				cmd_rrb(t_dualstack *dual);
 void				cmd_rrr(t_dualstack *dual);
+// algo
+void				backtrack_merge(t_dualstack *dual, int size);
+void				bubble_sort(t_dualstack *dual, int size);
+int					pushback_to_a(t_dualstack *dual, int size);
+int					split_to_b(t_dualstack *dual, int *lowest_tab, int size);
+int					*lowest_tab(t_stack *stack, int size);
 
 #endif

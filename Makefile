@@ -6,7 +6,7 @@
 #    By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/09 09:21:23 by osfally           #+#    #+#              #
-#    Updated: 2019/05/10 18:05:06 by shaparder        ###   ########.fr        #
+#    Updated: 2019/05/13 18:10:07 by shaparder        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRCS		:=	stack_mem.c\
 				commands.c\
 				commands_a.c\
 				commands_ab.c\
-				commands_b.c
+				commands_b.c\
+				sort_algorithms.c
 
 OBJS		:=	$(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 OBJ_CHCK	:=	$(addprefix $(OBJ_DIR)/, $(CHCK:.c=.o))

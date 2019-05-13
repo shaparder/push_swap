@@ -6,7 +6,7 @@
 /*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 17:52:08 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/09 16:45:32 by shaparder        ###   ########.fr       */
+/*   Updated: 2019/05/13 18:46:34 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,57 +81,34 @@ void			stack_free(t_stack *stack)
 // to delete after
 void			print_dual(t_dualstack *dual)
 {
-	t_stack		*end_a;
-	t_stack		*end_b;
-	t_stack		*tmp_a;
-	t_stack		*tmp_b;
+	int			a_size = stack_size(A);
+	int			b_size = stack_size(B);
+	t_stack		*tmp_a = (A) ? A : NULL;
+	t_stack		*tmp_b = (B) ? B : NULL;
 
-	if (A)
-	{
-		tmp_a = A;
-		end_a = A->prev;
-	}
-	else
-		tmp_a = NULL;
-	if (B)
-	{
-		tmp_b = B;
-		end_b = B->prev;
-	}
-	else
-		tmp_b = NULL;
 	printf("   Stack A     Stack B    \n");
 	ft_putendl("  |--------|  |--------|  ");
-	while ((tmp_a && tmp_a != end_a) || (tmp_b && tmp_b != end_b))
+	while (a_size || b_size)
 	{
 		printf("  |");
-		if (tmp_a && tmp_a != end_a)
+		if (a_size && tmp_a)
 		{
 			printf("%-8i", tmp_a->value);
 			tmp_a = tmp_a->next;
+			a_size--;
 		}
 		else
 			printf("        ");
 		printf("|  |");
-		if (tmp_b && tmp_b != end_b)
+		if (b_size && tmp_b)
 		{
 			printf("%-8i", tmp_b->value);
 			tmp_b = tmp_b->next;
+			b_size--;
 		}
 		else
 			printf("        ");
 		printf("|  \n");
 	}
-	printf("  |");
-	if (tmp_a)
-		printf("%-8i", tmp_a->value);
-	else
-		printf("        ");
-	printf("|  |");
-	if (tmp_b)
-		printf("%-8i", tmp_b->value);
-	else
-		printf("        ");
-	printf("|  \n");
 	ft_putendl("  |--------|  |--------|  ");
 }

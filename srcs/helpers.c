@@ -6,7 +6,7 @@
 /*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:14:47 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/12 15:18:59 by shaparder        ###   ########.fr       */
+/*   Updated: 2019/05/13 16:42:50 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ int				verify_arg(char *str, t_stack *stack)
 	t_stack		*tmp;
 	intmax_t	nbr;
 
-	if (!ft_strisnbr(str) || (nbr = ft_atoimax(str)) > INT_MAX || nbr < INT_MIN)
+	if (!ft_strisnbr(str))
+		return (0);
+	nbr = ft_atoimax(str);
+	if (nbr > INT_MAX || nbr < INT_MIN)
 		return (0);
 	else if (stack && stack->value == (int)nbr)
 		return (0);
