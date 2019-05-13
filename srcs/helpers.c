@@ -6,7 +6,7 @@
 /*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:14:47 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/10 15:12:30 by shaparder        ###   ########.fr       */
+/*   Updated: 2019/05/12 15:18:59 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void			program_end(t_dualstack *dual, int status)
 	stack_free(A);
 	stack_free(B);
 	free(dual);
-	if (status)
-		(result) ? ft_putendl("OK") : ft_putendl("KO");
-	else
+	if (status == 1)
+			(result) ? ft_putendl("OK") : ft_putendl("KO");
+	else if (status == 0)
 		ft_error("Error.");
 }
 

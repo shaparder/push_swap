@@ -6,11 +6,12 @@
 /*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 18:52:23 by shaparder         #+#    #+#             */
-/*   Updated: 2019/05/10 18:10:06 by shaparder        ###   ########.fr       */
+/*   Updated: 2019/05/13 14:36:52 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 void			bubble_sort(t_dualstack *dual, int size)
 {
@@ -105,25 +106,25 @@ int				*lowest_tab(t_stack *stack, int size)
 {
 	int			min;
 	int			i;
+	int			j;
 	int			*tab;
-	t_stack		*end;
+	t_stack		*tmp;
 
 	if (!(tab = (int*)malloc(sizeof(int) * size/2)))
 		return (NULL);
 	i = 0;
-	end = stack->prev;
-	min = INT_MAX;
+	tmp = stack;
 	while (i < size/2)
 	{
-		while (stack != end)
+		j = -1;
+		min = INT_MAX;
+		while (++j < size)
 		{
-			if (stack->value > min)
-				min = stack->value;
-			stack = stack->next;
+			if (tmp->value < min && !(ft_intintab(tmp->value, tab, i)))
+				min = tmp->value;
+			tmp = tmp->next;
 		}
-		if (stack->value > min)
-			min = stack->value;
-		stack = stack->next;
+		tmp = stack;
 		tab[i] = min;
 		i++;
 	}
@@ -164,6 +165,7 @@ int				main(int argc, char **argv)
 			program_end(dual, 0);
 		A = stack_push(A, ft_atoi(argv[i]));
 	}
+
 	if (stack_size(A) < 6)
 		bubble_sort(dual, stack_size(A));
 	else

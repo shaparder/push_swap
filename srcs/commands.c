@@ -6,7 +6,7 @@
 /*   By: shaparder <shaparder@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 23:14:57 by osfally           #+#    #+#             */
-/*   Updated: 2019/05/09 15:28:43 by shaparder        ###   ########.fr       */
+/*   Updated: 2019/05/12 14:54:03 by shaparder        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ void			apply_cmds(t_dualstack *dual)
 		ft_strdel(&line);
 	}
 	ft_strdel(&line);
-	print_dual(dual);
+	// print_dual(dual);
 }
